@@ -1,8 +1,17 @@
 # Collection
-Lets you do things like pluck, unique, filter, map, reject on a collection of items in PHP.
+**Problem:** PHP can be annoying iterating over arrays over and over and cluttering up your code.
+
+**Solution:** Collection lets you do things like pluck, unique, filter, map, reject on a collection of items in PHP.
+
+**A Collection will work with arrays of the following types.**
+
+- an Array of associative Arrays
+- an Array of Objects such as database result set
+- a single array of items such as strings or integers
 
 ## Example
-Say you have an Associative Array of items like such.
+Say you have an Associative Array of items like such. 
+
 ````PHP
 $myArray = [
 	['name' => 'Jack',   'profession' => 'Doctor',     'hobby' => 'Golf'], 
