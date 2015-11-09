@@ -198,7 +198,14 @@ class Collection {
   
   // utilities
   private function getValue($item, $key) { 
-    return $this->isObject() && !is_null($item) ? $item->$key : ($this->isAssoc() ? $item[$key] : $item); 
+    if (is_null($item)) return null;
+
+    if ($this->isObject()) {
+      return method_exists($item, $key) ? $item->$key() : $item->$key;
+    } elseif ($this->isAssoc()) {
+      return array_key_exists($key, $item) ? $item[$key] : null;
+    }
+    return $item;
   } 
   private function isObject() { return $this->type == self::OBJECT; }
   private function isSequence() { return $this->type == self::SEQUENCE; }
@@ -243,8 +250,7 @@ class Collection {
 
   private function buildSorter($key) {
     return function ($a, $b) use ($key) {
-      $method = method_exists($a, $key) ? true : false;
-      return $method ? strnatcmp($a->$key(), $b->$key()) : strnatcmp($a->$key, $b->$key);
+      return strnatcmp($this->getValue($a, $key), $this->getValue($b, $key));
     };
   }
 }

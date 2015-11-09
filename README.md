@@ -5,6 +5,7 @@ Lets you do things like pluck, unique, filter, map, reject on a collection of it
 Say you have an Associative Array of items like such.
 ````PHP
 $myArray = [
+	['name' => 'Jack',   'profession' => 'Doctor',     'hobby' => 'Golf'], 
 	['name' => 'Mike',   'profession' => 'Doctor',     'hobby' => 'Golf'], 
 	['name' => 'George', 'profession' => 'Programmer', 'hobby' => 'Guitar'],
 	['name' => 'Fred',   'profession' => 'Accountant', 'hobby' => 'Travel'],
@@ -16,15 +17,20 @@ You could perform the following once converted into a Collection
 
 ````PHP
 $collect = Collection::create($myArray);
-$collect->pluck('name')->toArray();
-// ['Mike', 'George', 'Fred', 'David']
+$collect->sortOn('name')->pluck('name')->toArray();
+// David, Fred, George, Jack, Mike
 
 $collect->where(['profession' => 'Doctor'])->pluck('name')->first();
-// Mike
+// Jack
 
 $collect->sortOn('hobby')->pluck('hobby')->toArray();
-// ['Golf', 'Guitar', 'Hiking', 'Travel']
+// Golf, Golf, Guitar, Hiking, Travel
+
+$collect->sortOn('hobby')->pluck('hobby')->unique()->toArray();
+// Golf, Guitar, Hiking, Travel
 ````
+
+keep reading for more detail and instructions of use of all the methods.
 
 
 
