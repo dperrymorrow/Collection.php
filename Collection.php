@@ -154,6 +154,7 @@ class Collection {
   function pluck($search, $unique=false) {
     if ($this->isEmpty()) return $this;
     $this->throwIfSequence();
+    $unique = is_array($search) ? false : $unique;
 
     $plucked = $this->map(function ($item) use ($search) {
       if (is_array($search)) {

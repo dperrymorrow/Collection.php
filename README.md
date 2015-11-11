@@ -27,16 +27,16 @@ You could perform the following once converted into a Collection
 ````PHP
 $collect = Collection::create($myArray);
 $collect->sortOn('name')->pluck('name')->toArray();
-// David, Fred, George, Jack, Mike
+// ['David', 'Fred', 'George', 'Jack', 'Mike']
 
 $collect->where(['profession' => 'Doctor'])->pluck('name')->first();
 // Jack
 
 $collect->sortOn('hobby')->pluck('hobby')->toArray();
-// Golf, Golf, Guitar, Hiking, Travel
+// ['Golf', 'Golf', 'Guitar', 'Hiking', 'Travel']
 
 $collect->sortOn('hobby')->pluck('hobby')->unique()->toArray();
-// Golf, Guitar, Hiking, Travel
+// ['Golf', 'Guitar', 'Hiking', 'Travel']
 ````
 
 keep reading for more detail and instructions of use of all the methods.
@@ -51,6 +51,37 @@ keep reading for more detail and instructions of use of all the methods.
 
 
 ##Pluck
+pulls certain keys _(if Associative)_ or fields _(if a Collection of Objects)_
+will throw an error if it is just a Numeric Array. Will remove any Null values collected using [rejectNull()](#rejectNull) method.
+
+````php
+$people = [
+	['name' => 'Jack',   'job' => 'Doctor',     'hobby' => 'Golf'], 
+	['name' => 'Mike',   'job' => 'Doctor',     'hobby' => 'Golf'], 
+	['name' => 'George', 'job' => 'Programmer', 'hobby' => 'Guitar'],
+	['name' => 'Fred',   'job' => 'Accountant', 'hobby' => 'Travel'],
+	['name' => 'David',  'job' => 'Painter',    'hobby' => 'Hiking'],
+];
+
+Collection::create($people)->pluck('profession')->toArray();
+// ['Doctor', 'Doctor', 'Programmer', 'Accountant', 'Painter']
+
+// with optional second parameter to limit to unique items.
+Collection::create($people)->pluck('profession', true)->toArray();
+// ['Doctor', 'Programmer', 'Accountant', 'Painter']
+
+// with multiple keys.
+Collection::create($people)->pluck(['name', profession'])->toArray();
+/*
+[
+  ['name' => 'Jack',   'job' => 'Doctor'],
+  ['name' => 'Mike',   'job' => 'Doctor'],
+  ['name' => 'George', 'job' => 'Programmer'],
+  ['name' => 'Fred',   'job' => 'Accountant'],
+  ['name' => 'David',  'job' => 'Painter']     
+]
+*/
+````
 
 
 
