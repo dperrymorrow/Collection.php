@@ -43,8 +43,14 @@ keep reading for more detail and instructions of use of all the methods.
 
 
 
-#Usage Instructions
+#Methods
+| Methods | Parameters | Description  |
+| ------  | -----------| ------------ |
+| [pluck](/#pluck) | ```$keys```, A single string, or Array of keys | Pulls keys from assoc Arrays or Objects |
+| [filter](/#filter) | an anonymous function. | Filters the collection based on the Boolean return value of the function passed. |
 
+
+##Pluck
 
 
 
