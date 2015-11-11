@@ -1,4 +1,4 @@
-# Collection
+# Collection.php
 **Problem:** PHP can be annoying iterating over arrays over and over and cluttering up your code.
 
 **Solution:** Collection lets you do things like pluck, unique, filter, map, reject on a collection of items in PHP.
