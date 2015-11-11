@@ -71,7 +71,7 @@ Collection::create($people)->pluck('profession', true)->toArray();
 // ['Doctor', 'Programmer', 'Accountant', 'Painter']
 
 // with multiple keys.
-Collection::create($people)->pluck(['name', profession'])->toArray();
+Collection::create($people)->pluck(['name', 'profession'])->toArray();
 /*
 [
   ['name' => 'Jack',   'job' => 'Doctor'],
