@@ -103,7 +103,7 @@ $people->pluck(['name', 'profession'])->toArray();
 ```
 
 ##Filter 
-> ```php ->filter(Function)``` Filters the Collection based on the Boolean return value of the Anonymous function passed. 
+> ```->filter(Function)``` Filters the Collection based on the Boolean return value of the Anonymous function passed. 
     
 If your method returns true, the item will remain, if false, it will be removed from the returned Collection.
 
@@ -123,8 +123,8 @@ $people->filter(function($item) {
 */
 ```
 
-##Where ```->where(Array)```
-> Returns a Collection consisting of items that meet the key values passed. 
+##Where 
+> ```->where(Array)``` Returns a Collection consisting of items that meet the key values passed. 
 
 Works the same for Collections of Object attributes or Associative Array keys.
 ```php    
@@ -140,7 +140,8 @@ $people->where(['job' => 'Doctor'])->toArray();
 
 ##Find 
 > ```->find(Array)``` Returns an Associative Array, the first item found that matches the key vals passed. 
-> Alias for ```->where(Array)->first()```
+
+Alias for ```->where(Array)->first()```
 
 ```php
 // find the first doctor.
