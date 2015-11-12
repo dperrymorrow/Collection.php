@@ -53,14 +53,12 @@ keep reading for more detail and instructions of use of all the methods.
 | [where](#where) | associative array | Collection of items that match the key values passed. |
 
 
-##Create ```Collection::create(Array)```
-> build a new Collection Object. 
+##Create 
+> ```Collection::create(Array)``` build a new Collection Object. 
 
 Alias for ```new Collection(Array)``` using the static build Functiion allows for chaining off the contstructor
-```Collection::create(Array)->pluck('key')->toArray()```
 
-
-How to build the Collection from your Array of Associative Arrays, Objects such as Database result set, or Numeric Array _(sequential)_
+Build the Collection from your Array of Associative Arrays, Objects such as Database result set, or Numeric Array _(sequential)_
 
 ```php
 $people = Collection::create([
@@ -72,8 +70,8 @@ $people = Collection::create([
 ]);
 ```
     
-##toArray ```->toArray()```
-> returns the Array that the Collection Object contains.
+##toArray 
+> ```->toArray()``` returns the Array that the Collection Object contains.
     
 ```php
 $people->pluck('name')->toArray();
@@ -81,8 +79,7 @@ $people->pluck('name')->toArray();
 ```
 
 ##Pluck 
-```php ->pluck(String or Array)```
-> pulls certain keys _(if Associative)_ or fields _(if a Collection of Objects)_
+> ``` ->pluck(String or Array)``` pulls certain keys _(if Associative)_ or fields _(if a Collection of Objects)_
 
 will throw an error if it is just a Numeric Array. Will remove any Null values collected using [rejectNull()](#rejectNull) method.
 
@@ -106,8 +103,7 @@ $people->pluck(['name', 'profession'])->toArray();
 ```
 
 ##Filter 
-```php ->filter(Function)```
-> Filters the Collection based on the Boolean return value of the Anonymous function passed. 
+> ```php ->filter(Function)``` Filters the Collection based on the Boolean return value of the Anonymous function passed. 
     
 If your method returns true, the item will remain, if false, it will be removed from the returned Collection.
 
@@ -142,10 +138,10 @@ $people->where(['job' => 'Doctor'])->toArray();
 */
 ```
 
-##Find ```->find(Array)```
-> Returns an Associative Array, the first item found that matches the key vals passed. 
+##Find 
+> ```->find(Array)``` Returns an Associative Array, the first item found that matches the key vals passed. 
+> Alias for ```->where(Array)->first()```
 
-Alias for ```->where(Array)->first()```
 ```php
 // find the first doctor.
 $people->find(['job' => 'Doctor'])->toArray(); 
