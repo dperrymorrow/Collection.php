@@ -151,7 +151,7 @@ class CollectionTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals($this->objCol->size(), 3, 'should not effect original collection');
   }
 
-  function testDoesNotHas() {
+  function testDoesNotHave() {
     $this->assertTrue($this->objCol->doesNotHave(['field' => 'your mother']), 'should not find the object by field');
     $this->assertFalse($this->objCol->doesNotHave(['field' => 'donkey']), 'should find the object by field');
     $this->assertEquals($this->objCol->size(), 3, 'should not effect original collection');
