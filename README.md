@@ -75,7 +75,7 @@ $people = Collection::create([
     
 ```php
 $people->pluck('name')->toArray();
-[Jack, Mike, George, Fred, David]
+// [Jack, Mike, George, Fred, David]
 ```
 
 ##Pluck 

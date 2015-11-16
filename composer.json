@@ -1,0 +1,13 @@
+{
+    "name": "collection/collection",
+    "description": "PHP Library for manipulating collections of Objects, Associative Arrays, or Numeric Arrays ",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Morrow",
+            "email": "dperrymorrow@gmail.com"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {}
+}
