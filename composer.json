@@ -1,5 +1,5 @@
 {
-    "name": "collection/collection",
+    "name": "dperrymorrow/collection",
     "description": "PHP Library for manipulating collections of Objects, Associative Arrays, or Numeric Arrays ",
     "license": "MIT",
     "authors": [
