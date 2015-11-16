@@ -8,6 +8,6 @@
             "email": "dperrymorrow@gmail.com"
         }
     ],
-    "minimum-stability": "alpha",
+    "minimum-stability": "stable",
     "require": {}
 }
