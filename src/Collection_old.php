@@ -1,4 +1,5 @@
 <?
+namespace Collection;
 class Collection {
 
   private $arr;
@@ -202,7 +203,8 @@ class Collection {
     if (is_null($item)) return null;
 
     if ($this->isObject()) {
-      return method_exists($item, $key) ? $item->$key() : $item->$key;
+
+      return property_exists($item, $key) ? $item->$key : (method_exists($item, $key) ? $item->$key() : null);
     } elseif ($this->isAssoc()) {
       return array_key_exists($key, $item) ? $item[$key] : null;
     }

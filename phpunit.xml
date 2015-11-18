@@ -2,16 +2,16 @@
 <phpunit bootstrap="tests/bootstrap.php"
          colors="true"
          processIsolation="false"
-         stopOnFailure="false"
+         stopOnFailure="true"
          syntaxCheck="false"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true">
   <testsuites>
 		<testsuite name="Tests">
-				<file>Collection.php</file>
-				<file>tests/Stubs.php</file>
-				<file>tests/CollectionTest.php</file>
+				<file>tests/ObjectTest.php</file>
+        <file>tests/AssociativeTest.php</file>
+        <file>tests/NumericTest.php</file>
 		</testsuite>
 	</testsuites>
 </phpunit>
